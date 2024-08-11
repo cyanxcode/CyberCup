@@ -53,7 +53,6 @@
         <div class="field">
             <label for="Size">Team Size: </label>
             <select name="Team Number" id="Size" class="input">
-                <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
@@ -66,6 +65,11 @@
                 <div class="field">
                     <input type="text" class="input" placeholder="Team Leader Name">
                 </div>
+                <select name="Team Number" id="Size" class="input">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
+                </select>
                 <div class="field">
                     <input type="text" class="input" placeholder="Phone Number">
                 </div>
@@ -76,10 +80,15 @@
                     <input type="text" class="input" placeholder="Institute">
                 </div>
             </div>
-            <div class="row hide" id="row2">
+            <div class="row" id="row2">
                 <div class="field">
                     <input type="text" class="input" placeholder="Member Name">
                 </div>
+                <select name="Team Number" id="Size" class="input">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
+                </select>
                 <div class="field">
                     <input type="text" class="input" placeholder="Phone Number">
                 </div>
@@ -94,6 +103,11 @@
                 <div class="field">
                     <input type="text" class="input" placeholder="Member Name">
                 </div>
+                <select name="Team Number" id="Size" class="input">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
+                </select>
                 <div class="field">
                     <input type="text" class="input" placeholder="Phone Number">
                 </div>
@@ -108,6 +122,11 @@
                 <div class="field">
                     <input type="text" class="input" placeholder="Member Name">
                 </div>
+                <select name="Team Number" id="Size" class="input">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
+                </select>
                 <div class="field">
                     <input type="text" class="input" placeholder="Phone Number">
                 </div>
@@ -122,6 +141,11 @@
                 <div class="field">
                     <input type="text" class="input" placeholder="Member Name">
                 </div>
+                <select name="Team Number" id="Size" class="input">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
+                </select>
                 <div class="field">
                     <input type="text" class="input" placeholder="Phone Number">
                 </div>
@@ -178,32 +202,22 @@
 
     size.onchange = function(){
         switch (size.value){
-            case '1': 
-                row2.classList.add("hide");
-                row3.classList.add("hide");
-                row4.classList.add("hide");
-                row5.classList.add("hide");
-                break;
             case '2': 
-                row2.classList.remove("hide");
                 row3.classList.add("hide");
                 row4.classList.add("hide");
                 row5.classList.add("hide");
                 break;
             case '3': 
-                row2.classList.remove("hide");
                 row3.classList.remove("hide");
                 row4.classList.add("hide");
                 row5.classList.add("hide");
                 break;
             case '4': 
-                row2.classList.remove("hide");
                 row3.classList.remove("hide");
                 row4.classList.remove("hide");
                 row5.classList.add("hide");
                 break;
             case '5': 
-                row2.classList.remove("hide");
                 row3.classList.remove("hide");
                 row4.classList.remove("hide");
                 row5.classList.remove("hide");
