@@ -13,9 +13,8 @@
         <img src="https://raw.githubusercontent.com/Amity-ASET/Amity-ASET.github.io/main/images/cybercup-logo-red-square.png"
         alt="CyberCup" class="img2">
     </nav>
-    <h1>Welcome to</h1>
-    <h2>CyberCup 4.0</h2>
-    <h4>Held at Amity University in October 2024</h4>
+    <h2>CyberCup 4.0 Registeration</h2>
+    <h4>Each Particiapant should be a student of a University or College.</h4>
     <form>
         <div class="field">
             <label for="Amity">Are you currently associated with Amity University? </label>
@@ -24,40 +23,20 @@
                 <option value="Yes">Yes</option>
           </select>
         </div>
-        <div class="field">
-            <label for="Name">Name: </label>
-            <input type="text" class="input" id="Name">
-        </div>
-        <div class="field">
-            <label for="Email">Email: </label>
-            <input type="text" class="input" id="Email">
-        </div>
-        <div class="field">
-            <label for="Phone">Phone Number: </label>
-            <input type="text" class="input" id="Phone">
-        </div>
-        <div class="field">
-            <label for="Institute">Institute: </label>
-            <input type="text" class="input" id="Institute">
-        </div>
-        <div class="field">
-            <label for="City">City: </label>
-            <input type="text" class="input" id="City">
-        </div>
-        <div class="field">
+        <div class="field amity">
             <label for="Affiliation">Affiliation: </label>
             <select name="Team Number" id="Affiliation" class="input">
             <option value="National">National</option>
             <option value="International">International</option>
           </select>
         </div>
-        <div class="field hide" id="countryX">
+        <div class="field hide amity" id="countryX">
             <label for="Country">Country: </label>
             <input type="text" class="input" id="Country">
         </div>
-        <div class="field">
-            <label for="Team">Team Name: </label>
-            <input type="text" class="input" id="Team">
+        <div class="field amity">
+            <label for="City">City: </label>
+            <input type="text" class="input" id="City">
         </div>
         <div class="field">
             <label for="Theme">Theme: </label>
@@ -68,19 +47,41 @@
           </select>
         </div>
         <div class="field">
+            <label for="Team">Team Name: </label>
+            <input type="text" class="input" id="Team">
+        </div>
+        <div class="field">
             <label for="Size">Team Size: </label>
             <select name="Team Number" id="Size" class="input">
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
           </select>
         </div>
         <div class="members">
             <label>Team Members: </label>
-            <div class="row" id="row2">
+            <div class="row" id="row1">
                 <div class="field">
-                    <input type="text" class="input" placeholder="Name">
+                    <input type="text" class="input" placeholder="Team Leader Name">
+                </div>
+                <div class="field">
+                    <input type="text" class="input" placeholder="Phone Number">
+                </div>
+                <div class="field">
+                    <input type="text" class="input" placeholder="Email">
+                </div>
+                <div class="field">
+                    <input type="text" class="input" placeholder="Institute">
+                </div>
+            </div>
+            <div class="row hide" id="row2">
+                <div class="field">
+                    <input type="text" class="input" placeholder="Member Name">
+                </div>
+                <div class="field">
+                    <input type="text" class="input" placeholder="Phone Number">
                 </div>
                 <div class="field">
                     <input type="text" class="input" placeholder="Email">
@@ -91,7 +92,10 @@
             </div>
             <div class="row hide" id="row3">
                 <div class="field">
-                    <input type="text" class="input" placeholder="Name">
+                    <input type="text" class="input" placeholder="Member Name">
+                </div>
+                <div class="field">
+                    <input type="text" class="input" placeholder="Phone Number">
                 </div>
                 <div class="field">
                     <input type="text" class="input" placeholder="Email">
@@ -102,7 +106,10 @@
             </div>
             <div class="row hide" id="row4">
                 <div class="field">
-                    <input type="text" class="input" placeholder="Name">
+                    <input type="text" class="input" placeholder="Member Name">
+                </div>
+                <div class="field">
+                    <input type="text" class="input" placeholder="Phone Number">
                 </div>
                 <div class="field">
                     <input type="text" class="input" placeholder="Email">
@@ -113,7 +120,10 @@
             </div>
             <div class="row hide" id="row5">
                 <div class="field">
-                    <input type="text" class="input" placeholder="Name">
+                    <input type="text" class="input" placeholder="Member Name">
+                </div>
+                <div class="field">
+                    <input type="text" class="input" placeholder="Phone Number">
                 </div>
                 <div class="field">
                     <input type="text" class="input" placeholder="Email">
@@ -138,6 +148,9 @@
 
     let nationality = document.getElementById("Affiliation");
     let country = document.getElementById("countryX");
+
+    let affiliated = document.getElementById("Amity");
+    let toHide = document.getElementsByClassName("amity");
     nationality.onchange = function(){
         switch(nationality.value){
             case 'National':
@@ -148,25 +161,49 @@
                 break;
         }
     }
+    affiliated.onchange = function(){
+        switch(affiliated.value){
+            case 'Yes':
+                for (let index = 0; index < toHide.length; index++) {
+                    toHide[index].classList.add("hide");
+                }
+                break;
+            case 'No':
+                for (let index = 0; index < toHide.length; index++) {
+                    toHide[index].classList.remove("hide");
+                }
+                break;
+        }
+    }
 
     size.onchange = function(){
         switch (size.value){
+            case '1': 
+                row2.classList.add("hide");
+                row3.classList.add("hide");
+                row4.classList.add("hide");
+                row5.classList.add("hide");
+                break;
             case '2': 
+                row2.classList.remove("hide");
                 row3.classList.add("hide");
                 row4.classList.add("hide");
                 row5.classList.add("hide");
                 break;
             case '3': 
+                row2.classList.remove("hide");
                 row3.classList.remove("hide");
                 row4.classList.add("hide");
                 row5.classList.add("hide");
                 break;
             case '4': 
+                row2.classList.remove("hide");
                 row3.classList.remove("hide");
                 row4.classList.remove("hide");
                 row5.classList.add("hide");
                 break;
             case '5': 
+                row2.classList.remove("hide");
                 row3.classList.remove("hide");
                 row4.classList.remove("hide");
                 row5.classList.remove("hide");
